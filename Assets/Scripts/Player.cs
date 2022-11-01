@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
     {
         //Move forward
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);//translate off of world coords rather than local gameobject
-        
         //Side to side movement
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
             if (this.gameObject.transform.position.x > LevelBoundary.leftSide) {
