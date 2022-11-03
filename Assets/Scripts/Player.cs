@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed = 3.0f; 
+    [SerializeField] public float moveSpeed = 3.0f; 
     [SerializeField] float leftRightSpeed = 4.0f;
 
     public Vector3 jump;
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //Move forward
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);//translate off of world coords rather than local gameobject
         //Side to side movement
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.name == "Floor") {
+        if (collision.gameObject.tag == "FloorTile") {
             isGrounded = true;
         }
     }
