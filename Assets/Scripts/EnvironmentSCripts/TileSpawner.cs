@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileSpawner : MonoBehaviour
 {
-    public GameObject[] tiles;
+    public GameObject[] tiles; 
     public float zPos = 9.8f;
     public bool creatingTile = false;
     public int tile_num;
@@ -17,7 +17,7 @@ public class TileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        waitTime = 10 / player.moveSpeed;
+        waitTime = 5 / player.moveSpeed;
 
         if (creatingTile == false) {
             creatingTile = true;
