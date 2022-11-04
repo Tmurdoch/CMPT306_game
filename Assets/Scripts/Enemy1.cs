@@ -6,7 +6,7 @@ public class Enemy1 : MonoBehaviour
 {
     public float moveSpeed = 1.0f;
 
-    public Rigidbody bulletPrefab;
+    public GameObject bulletPrefab;
     public float shootSpeed = 0.5f;
 
     private float fireRate = 0.5f; //fired a second
@@ -48,6 +48,6 @@ public class Enemy1 : MonoBehaviour
 
     void shoot() {
         var projectile = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        projectile.velocity = transform.forward * shootSpeed;
+        // projectile.velocity = transform.forward * shootSpeed;
     }
 }

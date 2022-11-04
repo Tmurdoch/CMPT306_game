@@ -143,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f1dce2e53804af9f6ca60ae421e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: -5517112467017166977, guid: dc4ece05b2a059cee99ed65e77597d3f, type: 3}
+  moveSpeed: 1
+  bulletPrefab: {fileID: 6358149481366689408, guid: dc4ece05b2a059cee99ed65e77597d3f, type: 3}
   shootSpeed: 150
 --- !u!135 &2935571967757736506
 SphereCollider:
