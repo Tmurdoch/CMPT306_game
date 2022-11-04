@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
@@ -10,10 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] float leftRightSpeed = 4.0f;
 
     public Vector3 jump;
-    public float jumpForce = 2.0f;
+    public float jumpForce = 4.0f;
 
     public bool isGrounded;
     public Rigidbody rb;
+
+    [SerializeField] private float health = 100.0f;
 
     void Start(){
              rb = GetComponent<Rigidbody>();
@@ -52,6 +55,23 @@ public class Player : MonoBehaviour
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == "FloorTile") {
             isGrounded = true;
+        }
+    }
+
+    public void TakeDamage (float damage) {
+        health -= damage; 
+
+        if (health <= 0) {
+
+            Debug.Log("should take damage");
+            //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
+            //Destroy(effect, 1.0f); 
+            Destroy(this.gameObject);     
+
+            //reload scene
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+
         }
     }
 }
