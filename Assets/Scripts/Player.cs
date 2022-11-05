@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float fireRates = 0.1f;
     [SerializeField] private float fireTimes;
 
+    static public bool canMove = false;
+
 
     public Vector3 jump;
     public float jumpForce = 4.0f;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     {
         //moveSpeed += 0.1f;
         
+        if (canMove) {
         //Move forward
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);//translate off of world coords rather than local gameobject
         //Side to side movement
@@ -53,6 +56,7 @@ public class Player : MonoBehaviour
      
                  rb.AddForce(jump * jumpForce, ForceMode.Impulse);
                  isGrounded = false;
+        }
         }
 
         Shoot();
