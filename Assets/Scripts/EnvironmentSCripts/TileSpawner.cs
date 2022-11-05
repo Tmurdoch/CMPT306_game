@@ -11,6 +11,7 @@ public class TileSpawner : MonoBehaviour
     public float waitTime; 
 
     public GameObject powerup;
+    public GameObject EnemySpawner;
 
     [SerializeField] public Player player;
 
@@ -33,6 +34,10 @@ public class TileSpawner : MonoBehaviour
         zPos += 54.3f;
 
         Instantiate(powerup, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
+        yield return new WaitForSeconds(waitTime); //TODO: change this, we will have increasing speed
+        creatingTile = false;
+
+        Instantiate(EnemySpawner, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
         yield return new WaitForSeconds(waitTime); //TODO: change this, we will have increasing speed
         creatingTile = false;
     }
