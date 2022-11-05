@@ -74,4 +74,13 @@ public class Player : MonoBehaviour
 
         }
     }
+
+    public void toggleMoving() {
+        if (moveSpeed > 0) {
+            moveSpeed = 0;
+        }
+        else {
+            moveSpeed = 3.0f;
+        }
+    }
 }
