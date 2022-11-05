@@ -10,6 +10,8 @@ public class TileSpawner : MonoBehaviour
     public int tile_num;
     public float waitTime; 
 
+    public GameObject powerup;
+
     [SerializeField] public Player player;
 
 
@@ -29,6 +31,8 @@ public class TileSpawner : MonoBehaviour
         tile_num = Random.Range(0 , 3);
         Instantiate(tiles[tile_num], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 54.3f;
+
+        Instantiate(powerup, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
         yield return new WaitForSeconds(waitTime); //TODO: change this, we will have increasing speed
         creatingTile = false;
     }
