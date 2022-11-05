@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField] public float moveSpeed = 3.0f; 
     [SerializeField] float leftRightSpeed = 4.0f;
 
+    [SerializeField] private GameObject PlayerProjectile;
+    [SerializeField] private float fireRates = 0.1f;
+    [SerializeField] private float fireTimes;
+
+
     public Vector3 jump;
     public float jumpForce = 4.0f;
 
@@ -50,6 +55,8 @@ public class Player : MonoBehaviour
                  isGrounded = false;
         }
 
+        Shoot();
+
     }
 
     void OnCollisionEnter(Collision collision){
@@ -72,6 +79,13 @@ public class Player : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
 
+        }
+    }
+
+    private void Shoot() {
+        if (Time.time > fireTimes) {
+            Instantiate(PlayerProjectile, transform.position, transform.rotation);
+            fireTimes = Time.time +fireRates;
         }
     }
 }
