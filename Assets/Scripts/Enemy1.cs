@@ -15,6 +15,8 @@ public class Enemy1 : MonoBehaviour
 
     private bool playerInRange = false;
 
+    private float enemyHealth = 100.0f;
+
     void OnTriggerEnter(Collider other) {
         Debug.Log("entered ranged");
         if (other.tag == "Player") {
@@ -44,6 +46,18 @@ public class Enemy1 : MonoBehaviour
             }
 
         }
+    }
+
+    public void TakeDamage (float damage) {
+    enemyHealth -= damage; 
+
+    if (enemyHealth <= 0) {
+
+        Debug.Log("should take damage");
+        //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
+        //Destroy(effect, 1.0f); 
+        Destroy(this.gameObject);     
+    }
     }
 
     void shoot() {
