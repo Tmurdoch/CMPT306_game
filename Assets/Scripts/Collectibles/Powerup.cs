@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    void onTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player") {
         Debug.Log("Collision");
