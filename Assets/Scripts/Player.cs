@@ -101,4 +101,8 @@ public class Player : MonoBehaviour
             fireTimes = Time.time +fireRates;
         }
     }
+
+    public void increaseSpeed() {
+        moveSpeed += 3f;
+    }
 }
