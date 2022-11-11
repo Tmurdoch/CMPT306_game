@@ -6,13 +6,13 @@ public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField] private float life = 5.0f;
     [SerializeField] private float movementSpeed = 300.0f;
-    [SerializeField] private float Damage = 50.0f; 
+    [SerializeField] private float damage = 50.0f; 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(this.gameObject, life);
-    }
+    // void Start()
+    // {
+    //     Destroy(this.gameObject, life);
+    // }
 
     // Update is called once per frame
     void Update()
@@ -24,10 +24,14 @@ public class PlayerProjectile : MonoBehaviour
         transform.position += transform.forward * movementSpeed * Time.deltaTime;
     }
 
-        void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "Enemy") {
-            other.GetComponent<Enemy1>().TakeDamage(Damage); 
+            other.GetComponent<Enemy>().TakeDamage(damage); 
             Destroy(this.gameObject); 
         }
+    }
+
+    public float GetDamage() {
+        return this.damage;
     }
 }

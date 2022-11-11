@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     public Rigidbody rb;
 
-    [SerializeField] private float health = 100.0f;
+    [SerializeField] public float health = 100.0f;
 
     void Start(){
              rb = GetComponent<Rigidbody>();
@@ -71,14 +71,11 @@ public class Player : MonoBehaviour
 
     public void TakeDamage (float damage) {
         health -= damage; 
-
         if (health <= 0) {
-
             Debug.Log("should take damage");
             //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             //Destroy(effect, 1.0f); 
             Destroy(this.gameObject);     
-
             //reload scene
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
@@ -104,5 +101,9 @@ public class Player : MonoBehaviour
 
     public void increaseSpeed() {
         moveSpeed += 3f;
+    }
+
+    public void Die() {
+        health = 0;
     }
 }
