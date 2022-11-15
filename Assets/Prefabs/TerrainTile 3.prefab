@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3973026332773696102}
   - component: {fileID: 3973026332772565158}
   - component: {fileID: 3973026333414123375}
+  - component: {fileID: 2684910501435318798}
   m_Layer: 0
   m_Name: TerrainTile 3
   m_TagString: FloorTile
@@ -119,6 +120,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20.00766, y: 1.7631485, z: 20.002102}
   m_Center: {x: 0.00095129013, y: 0.827278, z: 0.00021314621}
+--- !u!114 &2684910501435318798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973026332770311782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef71f71a0106d4cfd9c5142a9f04abbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &289590837869784587
 PrefabInstance:
   m_ObjectHideFlags: 0

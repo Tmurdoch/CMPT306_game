@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float fireTimes;
 
     static public bool canMove = false;
+    [SerializeField] private float maxSpeed = 15.0f;
+    [SerializeField] private float maxFireTimes = 50.0f;
+
 
 
     public Vector3 jump;
@@ -95,12 +98,20 @@ public class Player : MonoBehaviour
     private void Shoot() {
         if (Time.time > fireTimes) {
             Instantiate(PlayerProjectile, transform.position, transform.rotation);
-            fireTimes = Time.time +fireRates;
+            if(fireTimes <= maxFireTimes + fireRates) {
+                fireTimes = Time.time + fireRates;
+            } else {
+                fireTimes = maxFireTimes;
+            }
         }
     }
 
     public void increaseSpeed() {
-        moveSpeed += 3f;
+        if(moveSpeed + 3 <= maxSpeed) {
+            moveSpeed += 3f;
+        } else {
+            moveSpeed = maxSpeed;
+        }
     }
 
     public void Die() {
