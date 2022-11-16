@@ -9,7 +9,6 @@ public class TileDestroyer : MonoBehaviour
          Vector3 toTarget = (target.position - transform.position).normalized;
             if (Vector3.Dot(toTarget, transform.forward) < 0) {
                 Destroy(this);
-                Debug.Log("destroyed" + this);
             }
     }
 }

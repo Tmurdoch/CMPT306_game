@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
 
     void Start() {
        player = GameObject.FindWithTag("Player").transform;
-       Debug.Log(player);
     }
 
     // Update is called once per frame
@@ -52,12 +51,11 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage (float damage) {
         enemyHealth -= damage; 
-        Debug.Log("enemy health now:" + enemyHealth);
         if (enemyHealth <= 0) {
                 //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
                 //Destroy(effect, 1.0f); 
                 Destroy(this.gameObject);
-                Debug.Log("enemy should be destroyed" + this.gameObject);
+                
             }
     }
 

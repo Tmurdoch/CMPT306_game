@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] public float moveSpeed = 3.0f; 
+    private float forwardSpeed = 3.0f;
+    private float backwardSpeed = 1.5f;
     [SerializeField] float leftRightSpeed = 4.0f;
 
     [SerializeField] private GameObject PlayerProjectile;
@@ -17,6 +19,8 @@ public class Player : MonoBehaviour
     static public bool canMove = false;
     [SerializeField] private float maxSpeed = 15.0f;
     [SerializeField] private float maxFireTimes = 50.0f;
+
+    [SerializeField] private LevelBoundary LevelBoundary;
 
 
 
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour
     void Start(){
              rb = GetComponent<Rigidbody>();
              jump = new Vector3(0.0f, 2.0f, 0.0f); //save jump vector so we don't create one on every frame
+
          }
      
     
@@ -45,13 +50,24 @@ public class Player : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);//translate off of world coords rather than local gameobject
         //Side to side movement
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-            if (this.gameObject.transform.position.x > LevelBoundary.leftSide) {
+            if (this.gameObject.transform.position.x > LevelBoundary.leftBoundary) {
                 transform.Translate(Vector3.left * Time.deltaTime * leftRightSpeed);
             }
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
-            if (this.gameObject.transform.position.x < LevelBoundary.rightSide) {
+            if (this.gameObject.transform.position.x < LevelBoundary.rightBoundary) {
                 transform.Translate(Vector3.right * Time.deltaTime * leftRightSpeed);
+            }
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
+            if (this.gameObject.transform.position.z < LevelBoundary.frontBoundary) {
+                transform.Translate(Vector3.forward * Time.deltaTime * leftRightSpeed);
+            }
+            
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
+            if (this.gameObject.transform.position.z > LevelBoundary.backBoundary) {
+                transform.Translate(Vector3.back * Time.deltaTime * leftRightSpeed);
             }
         }
         //jump
@@ -106,9 +122,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    //called from collision - PowerUp
     public void increaseSpeed() {
         if(moveSpeed + 3 <= maxSpeed) {
             moveSpeed += 3f;
+            leftRightSpeed += 1.5f;
         } else {
             moveSpeed = maxSpeed;
         }
