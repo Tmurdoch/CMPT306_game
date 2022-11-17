@@ -113,7 +113,8 @@ public class Player : MonoBehaviour
     }
     private void Shoot() {
         if (Time.time > fireTimes) {
-            Instantiate(PlayerProjectile, transform.position, transform.rotation);
+            var projectile = Instantiate(PlayerProjectile, transform.position, transform.rotation);
+            Destroy(projectile, 20.0f);
             if(fireTimes <= maxFireTimes + fireRates) {
                 fireTimes = Time.time + fireRates;
             } else {

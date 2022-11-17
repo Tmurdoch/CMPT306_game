@@ -12,4 +12,5 @@ public class Powerup : MonoBehaviour
         Destroy(gameObject);
         }
     }
+
 }

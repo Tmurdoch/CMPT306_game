@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private float fireRate = 0.5f; //fired a second
     private float lastAttackTime = 0f;
     private Transform player = null;
-
+    private Player actual_player = null;
     private bool playerInRange = false;
 
     private float enemyHealth = 100.0f;
@@ -29,7 +29,8 @@ public class Enemy : MonoBehaviour
     }
 
     void Start() {
-       player = GameObject.FindWithTag("Player").transform;
+       actual_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+       player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -38,13 +39,27 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
         if (player) {
             float dist = Vector3.Distance(player.position, transform.position);
-            if(dist <= 18) {
-            transform.LookAt(player);
-            // transform.rotation = Quaternion.LookRotation(transform.position - transform.position, transform.up);
-            if (Time.time - lastAttackTime >= 1f / fireRate)  {
-                shoot();
-                lastAttackTime = Time.time;
-             }
+            if(dist <= 14) {
+                transform.LookAt(player);
+                if (Time.time - lastAttackTime >= 1f / fireRate)  {
+                    shoot();
+                    lastAttackTime = Time.time;
+                    }
+                Vector3 toPlayer = (player.position - transform.position).normalized;
+                if (Vector3.Dot(toPlayer, transform.forward) > 0) {
+                    transform.Translate(Vector3.forward * Time.deltaTime * actual_player.moveSpeed, Space.World);//translate off of world coords rather than local gameobject
+                }
+            } else {
+                 // Move our position a step closer to the target.
+                    var step =  actual_player.moveSpeed * Time.deltaTime; // calculate distance to move
+                    transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+
+                    // Check if the position of the cube and sphere are approximately equal.
+                    if (Vector3.Distance(transform.position, player.position) < 0.001f)
+                    {
+                        // Swap the position of the cylinder.
+                        player.position *= -1.0f;
+                    }
             }
         }
     }
