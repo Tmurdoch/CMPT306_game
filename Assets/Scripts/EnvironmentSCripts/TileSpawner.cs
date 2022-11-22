@@ -36,7 +36,7 @@ public class TileSpawner : MonoBehaviour
         creatingTile = false;
 
         Instantiate(EnemySpawner, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
-        yield return new WaitForSeconds(waitTime); //TODO: change this, we will have increasing speed
+        yield return new WaitForSeconds(waitTime); 
         creatingTile = false;
     }
 

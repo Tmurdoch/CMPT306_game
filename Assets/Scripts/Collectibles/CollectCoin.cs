@@ -9,6 +9,7 @@ public class CollectCoin : MonoBehaviour
     void onTriggerEnter(Collider other)
     {
         coinFX.Play();
+        CoinCounter.coinCount += 1;
         this.gameObject.SetActive(false);
     }
 }
