@@ -143,10 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f1dce2e53804af9f6ca60ae421e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSound: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
+  deathSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
   moveSpeed: 1
   bulletPrefab: {fileID: 6358149481366689408, guid: dc4ece05b2a059cee99ed65e77597d3f, type: 3}
   shootSpeed: 150
-  player: {fileID: 0}
 --- !u!1001 &4378778542413465502
 PrefabInstance:
   m_ObjectHideFlags: 0

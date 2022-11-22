@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollider : MonoBehaviour
-{
+{    
     [SerializeField] private float moveSpeed = 10.0f;
     [SerializeField] private bool isTouched;
+    public AudioClip coinSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +30,9 @@ public class CoinCollider : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-             CoinCounter.coinCount += 1;
+            CoinCounter.coinCount += 1;
             isTouched = true;
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
         }
     }
 }

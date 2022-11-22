@@ -12,6 +12,7 @@ public class TileSpawner : MonoBehaviour
 
     public GameObject powerup;
     public GameObject EnemySpawner;
+    public GameObject coinSpawner;
 
     [SerializeField] public Player player;
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public AudioClip damageSound;
+    public AudioClip deathSound;
+
     public float moveSpeed = 1.0f;
 
     public GameObject bulletPrefab;
@@ -66,11 +69,12 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage (float damage) {
         enemyHealth -= damage; 
+        AudioSource.PlayClipAtPoint(damageSound, transform.position);
         if (enemyHealth <= 0) {
                 //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
                 //Destroy(effect, 1.0f); 
                 Destroy(this.gameObject);
-                
+                AudioSource.PlayClipAtPoint(deathSound, transform.position);
             }
     }
 

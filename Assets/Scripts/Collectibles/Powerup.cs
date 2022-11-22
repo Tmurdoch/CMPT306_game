@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
+    public AudioClip powerUpSound;
     [SerializeField] public Player player = null;
 
     void OnTriggerEnter(Collider other)
@@ -13,6 +14,7 @@ public class Powerup : MonoBehaviour
             player.increaseSpeed();
             this.GetComponent<Renderer>().enabled = false;
             Invoke(nameof(ResetEffect), 10.0f);
+            AudioSource.PlayClipAtPoint(powerUpSound, transform.position);
         }
     }
 
