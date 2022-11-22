@@ -133,6 +133,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void decreaseSpeed() {
+        moveSpeed -= 3f;
+    }
+        
+
     public void Die() {
         health = 0;
     }
