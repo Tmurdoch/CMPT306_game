@@ -29,6 +29,7 @@ public class CoinCollider : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
+             CoinCounter.coinCount += 1;
             isTouched = true;
         }
     }
