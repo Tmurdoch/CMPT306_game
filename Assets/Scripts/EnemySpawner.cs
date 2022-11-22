@@ -8,28 +8,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float spawnRate = 2.0f;
     private float spawnTimer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        int randomNess = Random.Range(1, 4);
-        for(int i = 0; i < randomNess; i++)
-        {
-            StartCoroutine(SpawnEnemy());
-        }
-    }
 
-
-    IEnumerator SpawnEnemy() {
-        yield return new WaitForSeconds(Random.Range(1,6));
-        Instantiate(Enemy, transform.position, transform.rotation);
+    void SpawnEnemy() {
+        Instantiate(Enemy, new Vector3(Random.Range(-9, 9), 1, transform.position.z), transform.rotation);
         spawnTimer = Time.time + spawnRate;
     }
 
     void Update() {
         Transform target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-         Vector3 toTarget = (target.position - transform.position).normalized;
-            if (Vector3.Dot(toTarget, transform.forward) > 0) {
-                Destroy(this);
-            }
+        Vector3 toTarget = (target.position - transform.position).normalized;
+       
+
+        if (Time.time > spawnTimer) {
+            SpawnEnemy();
+            spawnRate -= 0.00000001f;
+        }
+        
+    }
+
+    public void setSpawnRate(float rate) {
+        spawnRate = rate;
     }
 }

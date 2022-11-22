@@ -9,13 +9,21 @@ public class LevelBoundary : MonoBehaviour
     public static float rightBoundary = 10.5f;
 
 
-    public double frontBoundary = 6f;
-    public double backBoundary = 6f;
+    private double frontBoundary = 6f;
+    private double backBoundary = 6f;
 
 
     void FixedUpdate() {
         frontBoundary = base.transform.position.z + 6.5;
         backBoundary = base.transform.position.z - 9;
+    }
+
+    public double getbackBoundary() {
+        return backBoundary;
+    }
+
+    public double getfrontBoundary() {
+        return frontBoundary;
     }
 
 }

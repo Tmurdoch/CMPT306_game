@@ -60,13 +60,13 @@ public class Player : MonoBehaviour
             }
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            if (this.gameObject.transform.position.z < LevelBoundary.frontBoundary) {
+            if (this.gameObject.transform.position.z < LevelBoundary.getfrontBoundary()) {
                 transform.Translate(Vector3.forward * Time.deltaTime * leftRightSpeed);
             }
             
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            if (this.gameObject.transform.position.z > LevelBoundary.backBoundary) {
+            if (this.gameObject.transform.position.z > LevelBoundary.getbackBoundary()) {
                 transform.Translate(Vector3.back * Time.deltaTime * leftRightSpeed);
             }
         }
@@ -132,6 +132,11 @@ public class Player : MonoBehaviour
             moveSpeed = maxSpeed;
         }
     }
+
+    public void decreaseSpeed() {
+        moveSpeed -= 3f;
+    }
+        
 
     public void Die() {
         health = 0;

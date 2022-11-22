@@ -32,10 +32,13 @@ public class TileSpawner : MonoBehaviour
         Instantiate(tiles[tile_num], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 54.3f;
         Instantiate(powerup, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
+<<<<<<< HEAD
         yield return new WaitForSeconds(waitTime); //TODO: change this, we will have increasing speed
         creatingTile = false;
 
         Instantiate(EnemySpawner, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
+=======
+>>>>>>> 2b8907da71b287f6425f84b593d9f20d97ceb0f0
         yield return new WaitForSeconds(waitTime); 
         creatingTile = false;
     }
