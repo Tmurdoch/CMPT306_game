@@ -26,9 +26,10 @@ public class CoinCollider : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            CoinCounter.coinCount += 1;
+            GameManager.instance.addCoins(1);
             isTouched = true;
             AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            Destroy(this.gameObject);
         }
     }
 }

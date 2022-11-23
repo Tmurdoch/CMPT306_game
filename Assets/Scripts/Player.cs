@@ -141,4 +141,19 @@ public class Player : MonoBehaviour
     public void Die() {
         health = 0;
     }
+
+    public void healPlayer() {
+        if(health < 100) {
+            if(health + 10 <= 100) {
+                health += 10;
+            } else {
+                health = 100;
+            }
+        }
+    }
+
+    public void increaseShotSpeed() 
+    {
+        fireRates = fireRates / 1.2f;
+    }
 }

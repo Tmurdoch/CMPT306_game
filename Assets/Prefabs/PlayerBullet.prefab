@@ -228,5 +228,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 5
-  movementSpeed: 300
+  movementSpeed: 50
   damage: 50
