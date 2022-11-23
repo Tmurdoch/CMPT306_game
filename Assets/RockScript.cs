@@ -8,7 +8,8 @@ public class RockScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            other.GetComponent<Player>().TakeDamage(collisionDamage); 
+            other.GetComponent<Player>().TakeDamage(collisionDamage);
+            Camera.main.GetComponent<Shake>().start = true;
         }
     }
 }
