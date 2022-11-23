@@ -455,7 +455,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 89f935015cc98724a862a586326fdf21, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.501
+  m_Volume: 0.084
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1940,6 +1940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0072fa40af47c4da91d602923869e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
 --- !u!1 &1170073171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df8da992adfd2cd0a93fccbd041705d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 7.5
   leftRightSpeed: 4
   PlayerProjectile: {fileID: 4904299589785419164, guid: 73609041205154538a0dd0e5a6cb21b0, type: 3}
   fireRates: 0.1

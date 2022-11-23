@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] public float moveSpeed = 3.0f; 
-    private float forwardSpeed = 3.0f;
+    [SerializeField] public float moveSpeed = 7.5f; 
+    private float forwardSpeed = 7.5f;
     private float backwardSpeed = 1.5f;
     [SerializeField] float leftRightSpeed = 4.0f;
 
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float fireTimes;
 
     static public bool canMove = false;
-    [SerializeField] private float maxSpeed = 15.0f;
+    [SerializeField] private float maxSpeed = 20.0f;
     [SerializeField] private float maxFireTimes = 50.0f;
 
     [SerializeField] private LevelBoundary LevelBoundary;
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
             moveSpeed = 0;
         }
         else {
-            moveSpeed = 3.0f;
+            moveSpeed = 7.5f;
 
 	}
     }
