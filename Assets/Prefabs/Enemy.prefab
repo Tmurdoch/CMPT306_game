@@ -143,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11f1dce2e53804af9f6ca60ae421e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageSound: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
-  deathSound: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
+  damageSound: {fileID: 8300000, guid: 334fe971e6ba4c7149270b833e9a6203, type: 3}
+  deathSound: {fileID: 8300000, guid: e052921e2a9157928a0cdcdc3950fc93, type: 3}
+  Coin: {fileID: 6046434409838620441, guid: 186727a4bf5ee82498cd0c834ef58372, type: 3}
   moveSpeed: 1
   bulletPrefab: {fileID: 6358149481366689408, guid: dc4ece05b2a059cee99ed65e77597d3f, type: 3}
   shootSpeed: 150

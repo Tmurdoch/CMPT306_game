@@ -250,5 +250,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1848e9cdac99d6a4dbdcbd3d39f6e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  isTouched: 0
+  coinSound: {fileID: 8300000, guid: eb28c25ccd2604fafa261d7806cc85a2, type: 3}

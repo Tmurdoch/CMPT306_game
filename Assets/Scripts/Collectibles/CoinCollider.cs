@@ -6,7 +6,7 @@ public class CoinCollider : MonoBehaviour
 {    
     private float moveSpeed = 10.0f;
     private bool isTouched;
-    private AudioClip coinSound;
+    [SerializeField] public AudioClip coinSound;
     
 
     // Update is called once per frame
