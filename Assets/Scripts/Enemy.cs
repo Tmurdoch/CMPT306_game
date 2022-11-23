@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public AudioClip damageSound;
     public AudioClip deathSound;
 
+    [SerializeField] private GameObject Coin;
+
     public float moveSpeed = 1.0f;
 
     public GameObject bulletPrefab;
@@ -71,10 +73,11 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage; 
         AudioSource.PlayClipAtPoint(damageSound, transform.position);
         if (enemyHealth <= 0) {
-                //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
-                //Destroy(effect, 1.0f); 
-                Destroy(this.gameObject);
-                AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            GameObject make_coin = Instantiate(Coin, transform.position, transform.rotation);
+            //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
+            //Destroy(effect, 1.0f); 
+            Destroy(this.gameObject);
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
             }
     }
 

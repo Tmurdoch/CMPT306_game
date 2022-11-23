@@ -5,7 +5,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
     public AudioClip powerUpSound;
-    [SerializeField] public Player player = null;
+    [SerializeField] public Player player;
 
     void OnTriggerEnter(Collider other)
     {

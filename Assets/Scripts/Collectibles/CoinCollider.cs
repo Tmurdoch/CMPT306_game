@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class CoinCollider : MonoBehaviour
 {    
-    [SerializeField] private float moveSpeed = 10.0f;
-    [SerializeField] private bool isTouched;
-    public AudioClip coinSound;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    private float moveSpeed = 10.0f;
+    private bool isTouched;
+    private AudioClip coinSound;
+    
 
     // Update is called once per frame
     void Update()
