@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
-
+    [SerializeField] public float initialMoveSpeed = 7.5f;
     [SerializeField] public float moveSpeed = 7.5f; 
     private float forwardSpeed = 7.5f;
     private float backwardSpeed = 1.5f;
@@ -17,12 +18,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float fireTimes;
 
     static public bool canMove = false;
-    [SerializeField] private float maxSpeed = 20.0f;
+    [SerializeField] private float maxSpeed = 30.0f;
     [SerializeField] private float maxFireTimes = 50.0f;
 
     [SerializeField] private LevelBoundary LevelBoundary;
 
-
+    //for game manager
+    public UnityEvent speedIncreaseEvent = new UnityEvent();
 
     public Vector3 jump;
     public float jumpForce = 4.0f;
@@ -131,12 +133,16 @@ public class Player : MonoBehaviour
         } else {
             moveSpeed = maxSpeed;
         }
+        speedIncreaseEvent.Invoke();
     }
 
     public void decreaseSpeed() {
         moveSpeed -= 3f;
     }
-        
+
+    public void resetMoveSpeed() {
+        moveSpeed = initialMoveSpeed;
+    }        
 
     public void Die() {
         health = 0;

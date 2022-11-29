@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powerup : MonoBehaviour
+public class Portal : MonoBehaviour
 {
-    public AudioClip powerUpSound;
     [SerializeField] public Player player;
+    [SerializeField] public TileSpawner tileSpawner;
+
 
     void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player") {
             player = other.GetComponent<Player>();
-            player.increaseSpeed();
+            
             this.GetComponent<Renderer>().enabled = false;
-            AudioSource.PlayClipAtPoint(powerUpSound, transform.position);
+            //TODO: sound
+
+            tileSpawner.nextEnvironment();
         }
     }
-
 }

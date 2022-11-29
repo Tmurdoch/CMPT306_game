@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 
 public class GameManager : MonoBehaviour
@@ -68,7 +69,6 @@ public class GameManager : MonoBehaviour
         }
         
     }
-
 
     public void purchaseHealth() {
         Debug.Log(player.health + "player health");
