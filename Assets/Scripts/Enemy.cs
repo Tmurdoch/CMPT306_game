@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage; 
         AudioSource.PlayClipAtPoint(damageSound, transform.position);
         if (enemyHealth <= 0) {
-            GameObject make_coin = Instantiate(Coin, transform.position, transform.rotation);
+            GameObject make_coin = Instantiate(Coin, transform.position, new Quaternion(0, 0, 0, -90));
             //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             //Destroy(effect, 1.0f); 
             Destroy(this.gameObject);
