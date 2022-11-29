@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Text coinText;
     [SerializeField] public Player player;
     [SerializeField] public GameObject shop;
-    public static GameManager instance = null; 
-    
-    
+    [SerializeField] public GameObject shopbutton;
+    public static GameManager instance = null;
+    private bool firsttime = true;
+
+
     void Update()
     {
         coinText.text = "Coins: " + coinCount;
@@ -48,13 +50,18 @@ public class GameManager : MonoBehaviour
     public void exitShop() {
         ResumeGame();
         shop.SetActive(false);
+        shopbutton.SetActive(true);
     }
 
     public void addCoins(int coins) {
         coinCount += coins;
-        if(coinCount % 10 == 0) {
+        if (firsttime == true)
+            {
+            if (coinCount == 10) {
                 PauseGame();
                 shop.SetActive(true);
+                firsttime = false;
+            }
         }
     }
 
@@ -70,6 +77,11 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+    public void toggleshop()
+    {
+        PauseGame();
+        shop.SetActive(true);
+        shopbutton.SetActive(false);
+    }
 
-        
 }
