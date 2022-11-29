@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 369849377}
   m_Layer: 0
   m_Name: TileSpawner
-  m_TagString: Untagged
+  m_TagString: TileSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -736,8 +736,9 @@ MonoBehaviour:
   tile_num: 0
   waitTime: 0
   powerup: {fileID: 6828197933001994107, guid: 698922a5478d2e99faf363a255eb3318, type: 3}
-  EnemySpawner: {fileID: 3141890311186244251, guid: cb65bbfc3dce44cf6ae184bb95853665, type: 3}
   coinSpawner: {fileID: 0}
+  Portal: {fileID: 6436313336470682286, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+  minPortalSpeed: 20
   player: {fileID: 1959380535}
 --- !u!4 &369849378
 Transform:
@@ -3187,6 +3188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df8da992adfd2cd0a93fccbd041705d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialMoveSpeed: 7.5
   moveSpeed: 7.5
   leftRightSpeed: 4
   PlayerProjectile: {fileID: 4904299589785419164, guid: 73609041205154538a0dd0e5a6cb21b0, type: 3}
@@ -3195,6 +3197,9 @@ MonoBehaviour:
   maxSpeed: 15
   maxFireTimes: 50
   LevelBoundary: {fileID: 586191367}
+  speedIncreaseEvent:
+    m_PersistentCalls:
+      m_Calls: []
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   isGrounded: 0
@@ -3216,6 +3221,63 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &1283422371090440940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 52.42304
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 741398562113668281, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436313336470682286, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_Name
+      value: Sphere
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
 --- !u!1001 &2935571968189621965
 PrefabInstance:
   m_ObjectHideFlags: 0
