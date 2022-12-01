@@ -732,9 +732,9 @@ MonoBehaviour:
   - {fileID: 3973026332770311782, guid: 6e58012f899b7f305985d28835f69b97, type: 3}
   - {fileID: 3973026332770311782, guid: 4b26f84c320f25649818420724a21b0e, type: 3}
   - {fileID: 3973026332770311782, guid: 79541404fa7c6637d894898d37bf9bf6, type: 3}
-  - {fileID: 3973026332770311782, guid: 767a15c9771738888b3737757b4da74d, type: 3}
-  - {fileID: 3973026332770311782, guid: 740b376e45d106699806393fd2ec7f14, type: 3}
-  - {fileID: 3973026332770311782, guid: 07b265ff38d52b4ef8c39f55203eeb2a, type: 3}
+  - {fileID: 1256858306203008, guid: 93acc49b5a9f4e84b89aa62e0282a2a3, type: 3}
+  - {fileID: 1256858306203008, guid: c705897bbbaa7e1f3a94144b5d11c607, type: 3}
+  - {fileID: 1256858306203008, guid: 6f2a3e4553d2498c5b59f81564116afc, type: 3}
   zPos: 9.8
   creatingTile: 0
   tile_num: 0
@@ -3198,7 +3198,6 @@ MonoBehaviour:
   PlayerProjectile: {fileID: 4904299589785419164, guid: 73609041205154538a0dd0e5a6cb21b0, type: 3}
   fireRates: 0.1
   fireTimes: 0
-  maxSpeed: 15
   maxFireTimes: 50
   LevelBoundary: {fileID: 586191367}
   speedIncreaseEvent:
@@ -3209,6 +3208,7 @@ MonoBehaviour:
   isGrounded: 0
   rb: {fileID: 0}
   health: 100
+  tileSpawner: {fileID: 369849377}
 --- !u!54 &1959380536
 Rigidbody:
   m_ObjectHideFlags: 0

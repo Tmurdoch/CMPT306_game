@@ -5,7 +5,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField] public Player player;
-    [SerializeField] public TileSpawner tileSpawner;
+    
 
 
     void OnTriggerEnter(Collider other)
@@ -15,8 +15,10 @@ public class Portal : MonoBehaviour
             
             this.GetComponent<Renderer>().enabled = false;
             //TODO: sound
-
-            tileSpawner.nextEnvironment();
+            
+            //can't have reference to tileSpawner from prefab, so tell
+            //player to do it
+            player.nextEnvironment();
         }
     }
 }

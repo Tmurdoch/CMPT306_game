@@ -30,7 +30,7 @@ public class TileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        waitTime = 10 / player.moveSpeed;
+        waitTime = 6 / player.moveSpeed;
         if (creatingTile == false) {
             creatingTile = true;
             StartCoroutine(GenerateTile());
@@ -57,6 +57,7 @@ public class TileSpawner : MonoBehaviour
         if (shouldSpawnPortal) {
             Instantiate(Portal, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
             shouldSpawnPortal = false;
+        
         }
         yield return new WaitForSeconds(waitTime); 
         creatingTile = false;
@@ -64,7 +65,6 @@ public class TileSpawner : MonoBehaviour
 
     private void portalCheck() {
         if (player.moveSpeed >= minPortalSpeed) {
-            Debug.Log("WE SHOULD SPAWN A PORTAL");
             shouldSpawnPortal = true;
         }
     }

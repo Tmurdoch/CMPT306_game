@@ -27,12 +27,14 @@ public class Player : MonoBehaviour
     public UnityEvent speedIncreaseEvent = new UnityEvent();
 
     public Vector3 jump;
-    public float jumpForce = 4.0f;
+    public float jumpForce = 8.0f;
 
     public bool isGrounded;
     public Rigidbody rb;
 
     [SerializeField] public float health = 100.0f;
+
+    [SerializeField] public TileSpawner tileSpawner;
 
     void Start(){
              rb = GetComponent<Rigidbody>();
@@ -161,5 +163,9 @@ public class Player : MonoBehaviour
     public void increaseShotSpeed() 
     {
         fireRates = fireRates / 1.2f;
+    }
+
+    public void nextEnvironment() {
+        tileSpawner.nextEnvironment();
     }
 }
