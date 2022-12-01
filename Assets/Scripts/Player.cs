@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float fireTimes;
 
     static public bool canMove = false;
-    [SerializeField] private float maxSpeed = 30.0f;
+    private float maxSpeed = 60.0f;
     [SerializeField] private float maxFireTimes = 50.0f;
 
     [SerializeField] private LevelBoundary LevelBoundary;
@@ -105,13 +105,13 @@ public class Player : MonoBehaviour
     }
 
     public void toggleMoving() {
+        float temp = moveSpeed;
         if (moveSpeed > 0) {
             moveSpeed = 0;
         }
         else {
-            moveSpeed = 7.5f;
-
-	}
+            moveSpeed = temp;
+	    }
     }
     private void Shoot() {
         if (Time.time > fireTimes) {
@@ -127,8 +127,8 @@ public class Player : MonoBehaviour
 
     //called from collision - PowerUp
     public void increaseSpeed() {
-        if(moveSpeed + 3 <= maxSpeed) {
-            moveSpeed += 3f;
+        if(moveSpeed + 6 <= maxSpeed) {
+            moveSpeed += 6f;
             leftRightSpeed += 1.5f;
         } else {
             moveSpeed = maxSpeed;
@@ -140,9 +140,9 @@ public class Player : MonoBehaviour
         moveSpeed -= 3f;
     }
 
-    public void resetMoveSpeed() {
-        moveSpeed = initialMoveSpeed;
-    }        
+    // public void resetMoveSpeed() {
+    //     moveSpeed = initialMoveSpeed;
+    // }        
 
     public void Die() {
         health = 0;

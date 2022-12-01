@@ -53,10 +53,10 @@ public class TileSpawner : MonoBehaviour
         Instantiate(tiles[tile_num], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 54.3f;
         Instantiate(powerup, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
+        portalCheck();
         if (shouldSpawnPortal) {
             Instantiate(Portal, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
             shouldSpawnPortal = false;
-            player.resetMoveSpeed();
         }
         yield return new WaitForSeconds(waitTime); 
         creatingTile = false;
