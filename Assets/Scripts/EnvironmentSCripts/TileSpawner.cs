@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TileSpawner : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class TileSpawner : MonoBehaviour
 
     private bool shouldSpawnPortal = false;
 
+    Scene currentScene;
+
     void Start() {
         player.speedIncreaseEvent.AddListener(portalCheck);
     }
@@ -35,7 +38,18 @@ public class TileSpawner : MonoBehaviour
     }
 
     IEnumerator GenerateTile() {
-        tile_num = Random.Range(0 , 3);
+        //update current scene
+        currentScene = SceneManager.GetActiveScene();
+
+        //switch the tiles based on which scene we are on
+        string sceneName = currentScene.name;
+        if (sceneName == "main_scene") { 
+            tile_num = Random.Range(0 , 3);
+        }
+        else if (sceneName == "desert_level") {
+            tile_num = Random.Range(3, 6);
+        }
+        
         Instantiate(tiles[tile_num], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 54.3f;
         Instantiate(powerup, new Vector3(Random.Range(-8, 8), 1, zPos), Quaternion.identity);
@@ -50,14 +64,22 @@ public class TileSpawner : MonoBehaviour
 
     private void portalCheck() {
         if (player.moveSpeed >= minPortalSpeed) {
-            Debug.Log("we should spawn a portal");
+            Debug.Log("WE SHOULD SPAWN A PORTAL");
             shouldSpawnPortal = true;
         }
     }
 
     public void nextEnvironment() {
-        //TODO
-        Debug.Log("NOT IMPLEMENTED, WE SHOULD SPAWN NEW TILES NOW");
+        int buildIndex = currentScene.buildIndex;
+
+        switch (buildIndex) {
+            case 1:
+                SceneManager.LoadScene(2);
+                break;
+            case 2:
+                SceneManager.LoadScene(1);
+                break;
+        }
     }
 
 }

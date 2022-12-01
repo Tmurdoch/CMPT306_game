@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - Shop
   - TileSpawner
+  - Portal
   layers:
   - Default
   - TransparentFX

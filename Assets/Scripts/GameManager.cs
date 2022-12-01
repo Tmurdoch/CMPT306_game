@@ -7,7 +7,11 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public static int coinCount;
+    //CoinsSo is a reference to the asset in the editor, so it 
+    //will persist across scene changes
+    //see Assets/Scripts/SoData
+    [SerializeField] public IntSO coinsSO;
+
     [SerializeField] public Text coinText;
 
     [SerializeField] public Player player;
@@ -27,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        coinText.text = "Coins: " + coinCount;
+        coinText.text = "Coins: " + coinsSO.Value;
     }
 
     void Awake() {
@@ -41,12 +45,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void addCoins(int coins) {
-        coinCount += coins;
+        coinsSO.Value += coins;
 
         //show shop for first time on 10th coin
         if (shownShop == false)
             {
-            if (coinCount == coinsToSpawnShop) {
+            if (coinsSO.Value >= coinsToSpawnShop) {
                 shownShop = true;
                 toggleshop();
             }
@@ -72,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void purchaseHealth() {
         Debug.Log(player.health + "player health");
-        if(coinCount >= 10 && player.health < 100) {
+        if(coinsSO.Value >= 10 && player.health < 100) {
             removeCoins(10);
             player.healPlayer();
         }
@@ -80,14 +84,14 @@ public class GameManager : MonoBehaviour
 
     public void purchaseShootFaster() 
     {
-        if(coinCount >= 20) {
+        if(coinsSO.Value >= 20) {
             removeCoins(20);
             player.increaseShotSpeed();
         }
     }
 
     public void removeCoins(int coins) {
-        coinCount -= coins;
+        coinsSO.Value -= coins;
     }
 
     void PauseGame ()
