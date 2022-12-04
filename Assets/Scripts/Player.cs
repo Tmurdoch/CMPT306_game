@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
-
+    [SerializeField] public float initialMoveSpeed = 7.5f;
     [SerializeField] public float moveSpeed = 7.5f; 
     private float forwardSpeed = 7.5f;
     private float backwardSpeed = 1.5f;
@@ -17,20 +18,23 @@ public class Player : MonoBehaviour
     [SerializeField] private float fireTimes;
 
     static public bool canMove = false;
-    [SerializeField] private float maxSpeed = 20.0f;
+    private float maxSpeed = 60.0f;
     [SerializeField] private float maxFireTimes = 50.0f;
 
     [SerializeField] private LevelBoundary LevelBoundary;
 
-
+    //for game manager
+    public UnityEvent speedIncreaseEvent = new UnityEvent();
 
     public Vector3 jump;
-    public float jumpForce = 4.0f;
+    public float jumpForce = 8.0f;
 
     public bool isGrounded;
     public Rigidbody rb;
 
     [SerializeField] public float health = 100.0f;
+
+    [SerializeField] public TileSpawner tileSpawner;
 
     void Start(){
              rb = GetComponent<Rigidbody>();
@@ -103,13 +107,13 @@ public class Player : MonoBehaviour
     }
 
     public void toggleMoving() {
+        float temp = moveSpeed;
         if (moveSpeed > 0) {
             moveSpeed = 0;
         }
         else {
-            moveSpeed = 7.5f;
-
-	}
+            moveSpeed = temp;
+	    }
     }
     private void Shoot() {
         if (Time.time > fireTimes) {
@@ -125,18 +129,22 @@ public class Player : MonoBehaviour
 
     //called from collision - PowerUp
     public void increaseSpeed() {
-        if(moveSpeed + 3 <= maxSpeed) {
-            moveSpeed += 3f;
+        if(moveSpeed + 6 <= maxSpeed) {
+            moveSpeed += 6f;
             leftRightSpeed += 1.5f;
         } else {
             moveSpeed = maxSpeed;
         }
+        speedIncreaseEvent.Invoke();
     }
 
     public void decreaseSpeed() {
         moveSpeed -= 3f;
     }
-        
+
+    // public void resetMoveSpeed() {
+    //     moveSpeed = initialMoveSpeed;
+    // }        
 
     public void Die() {
         health = 0;
@@ -155,5 +163,9 @@ public class Player : MonoBehaviour
     public void increaseShotSpeed() 
     {
         fireRates = fireRates / 1.2f;
+    }
+
+    public void nextEnvironment() {
+        tileSpawner.nextEnvironment();
     }
 }

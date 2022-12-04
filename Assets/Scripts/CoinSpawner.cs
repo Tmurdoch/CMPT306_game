@@ -21,7 +21,7 @@ public class CoinSpawner : MonoBehaviour
         Vector3 toTarget = (target.position - transform.position).normalized;
         if (Time.time > spawnTimer) {
             SpawnCoin();
-            spawnRate -= 0.00000001f;
+            spawnRate -= 0.000001f;
         }
     }
     public void setSpawnRate(float rate) {

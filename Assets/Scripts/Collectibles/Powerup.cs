@@ -13,14 +13,8 @@ public class Powerup : MonoBehaviour
             player = other.GetComponent<Player>();
             player.increaseSpeed();
             this.GetComponent<Renderer>().enabled = false;
-            Invoke(nameof(ResetEffect), 10.0f);
             AudioSource.PlayClipAtPoint(powerUpSound, transform.position);
         }
-    }
-
-    void ResetEffect() {
-        player.decreaseSpeed();
-        Destroy(this);
     }
 
 }

@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - PlayerBullet
   - Shop
+  - TileSpawner
+  - Portal
   layers:
   - Default
   - TransparentFX
