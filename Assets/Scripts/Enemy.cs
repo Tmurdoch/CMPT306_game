@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
 
     private float collisionDamage = 10.0f;
 
+    private float chanceSpawnCoin = 0.55f;
+
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
             other.GetComponent<Player>().TakeDamage(collisionDamage); 
@@ -73,11 +75,18 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage; 
         AudioSource.PlayClipAtPoint(damageSound, transform.position);
         if (enemyHealth <= 0) {
-            GameObject make_coin = Instantiate(Coin, transform.position, new Quaternion(0, 0, 0, -90));
-            //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
-            //Destroy(effect, 1.0f); 
+            
+            //spawn coins only only sometimes, probability based on 'chanceSpawnCoin' instance variable
+            float chance = Random.value;
+            
+            if (chance < chanceSpawnCoin) {
+                Debug.Log("Chance: " + chance +"CSC: " + chanceSpawnCoin);
+                Instantiate(Coin, transform.position, new Quaternion(0, 0, 0, -90));   
+            }
+
             Destroy(this.gameObject);
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
+
             }
     }
 

@@ -30,7 +30,7 @@ public class TileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        waitTime = 6 / player.moveSpeed;
+        waitTime = 10f / player.moveSpeed;
         if (creatingTile == false) {
             creatingTile = true;
             StartCoroutine(GenerateTile());
