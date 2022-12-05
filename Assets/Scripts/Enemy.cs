@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     private Player actual_player = null;
     private bool playerInRange = false;
 
-    private float enemyHealth = 100.0f;
+    private float enemyHealth = 50.0f;
 
     private float collisionDamage = 10.0f;
 
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed, Space.World);
         if (player) {
             float dist = Vector3.Distance(player.position, transform.position);
-            if(dist <= 14) {
+            if(dist <= 7) {
                 transform.LookAt(player);
                 if (Time.time - lastAttackTime >= 1f / fireRate)  {
                     shoot();
