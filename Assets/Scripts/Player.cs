@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         }
         }
 
-        Shoot();
+        //Shoot();
 
     }
 
