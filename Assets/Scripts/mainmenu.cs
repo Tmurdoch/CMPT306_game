@@ -6,7 +6,7 @@ public class mainmenu : MonoBehaviour
 {
     public void playgame()
     {///check File -> building setting then put scence after this scence will load next scence
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
     public void Endgame()
     {

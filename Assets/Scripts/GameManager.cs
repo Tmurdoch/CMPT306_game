@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     private bool showingShop = false; //there is no method in GO for this
 
+    private int distPerPoint = 10;
+
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -45,7 +47,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         coinText.text = "Coins: " + coinsSO.Value;
-        addScore((int)transform.position.z / 1000);
+        //add one point for each meter
+        if (transform.position.z / 10 > distPerPoint) {
+            addScore(1);
+            distPerPoint += 10;
+        }
+        
         scoreText.text = "Score: " + scoreSO.Value;
     }
 

@@ -2738,7 +2738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0072fa40af47c4da91d602923869e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
 --- !u!1 &1170073171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,7 +3465,7 @@ MonoBehaviour:
   jumpForce: 2
   isGrounded: 0
   rb: {fileID: 0}
-  health: 500
+  health: 250
   tileSpawner: {fileID: 369849377}
 --- !u!54 &1959380536
 Rigidbody:
