@@ -1,0 +1,27 @@
+Notes for game
+
+
+TODO:
+- fix camera shake/remove
+- score system (across both levels)
+- fix shop
+		- change speedup shooting to speedup rotation speed
+				- also make this Scriptable object, should go across levels?
+		- healthbar not showing for first 400 damage (change health back to 100 + reduce damage?)
+
+- enemies actually increase spawning rate 
+- make healthbars same size
+
+
+
+FEATURES:
+- more rewards
+		- facility
+		- access (new swords?)
+		- glory
+		- praise (popup canvas interface)
+		- sustenance
+
+
+- remove score on hit object? 
+	- flash score flash red

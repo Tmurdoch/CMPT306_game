@@ -7,12 +7,16 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    //CoinsSo is a reference to the asset in the editor, so it 
+    //CoinsSo + scoreSO are a reference to the asset in the editor, so it 
     //will persist across scene changes
     //see Assets/Scripts/SoData
     [SerializeField] public IntSO coinsSO;
 
     [SerializeField] public Text coinText;
+
+    [SerializeField] public IntSO scoreSO;
+
+    [SerializeField] public Text scoreText;
 
     [SerializeField] public Player player;
 
@@ -28,12 +32,6 @@ public class GameManager : MonoBehaviour
 
     private bool showingShop = false; //there is no method in GO for this
 
-
-    void Update()
-    {
-        coinText.text = "Coins: " + coinsSO.Value;
-    }
-
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -42,6 +40,17 @@ public class GameManager : MonoBehaviour
         else if (instance != this) {
             Destroy(gameObject); 
         }
+    }
+
+    void Update()
+    {
+        coinText.text = "Coins: " + coinsSO.Value;
+        addScore((int)transform.position.z / 1000);
+        scoreText.text = "Score: " + scoreSO.Value;
+    }
+
+    public void addScore(int score) {
+        scoreSO.Value += score;
     }
 
     public void addCoins(int coins) {
