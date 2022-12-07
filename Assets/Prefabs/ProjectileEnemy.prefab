@@ -57,7 +57,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 5
   moveSpeed: 5
-  damage: 5
+  damage: 3
 --- !u!23 &6786817978004646063
 MeshRenderer:
   m_ObjectHideFlags: 0
