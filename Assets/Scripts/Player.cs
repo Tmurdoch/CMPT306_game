@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public UnityEvent speedIncreaseEvent = new UnityEvent();
 
     public Vector3 jump;
-    public float jumpForce = 8.0f;
+    private float jumpForce = 4f;
 
     public bool isGrounded;
     public Rigidbody rb;
@@ -47,6 +47,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isGrounded) {
+            transform.rotation = Quaternion.identity;
+        }
         //moveSpeed += 0.1f;
         
         if (canMove) {
