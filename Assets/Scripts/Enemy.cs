@@ -80,13 +80,14 @@ public class Enemy : MonoBehaviour
             float chance = Random.value;
             
             if (chance < chanceSpawnCoin) {
-                Debug.Log("Chance: " + chance +"CSC: " + chanceSpawnCoin);
                 Instantiate(Coin, transform.position, new Quaternion(0, 0, 0, -90));   
             }
 
             Destroy(this.gameObject);
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
 
+            //tell game manager to increase score
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().addScore(5);
             }
     }
 

@@ -2,7 +2,6 @@ Notes for game
 
 
 TODO:
-- test score system
 - fix shop
 		- change speedup shooting to speedup rotation speed
 				- also make this Scriptable object, should go across levels?
@@ -17,6 +16,8 @@ FEATURES:
 - more rewards
 		- facility
 		- praise (popup canvas interface)
+
+- players can jump over bullets??
 
 
 Optional:
