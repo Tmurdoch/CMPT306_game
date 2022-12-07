@@ -9,6 +9,7 @@ TODO:
 - enemies actually increase spawning rate 
 - killing enemies increase score
 - move the objects so their isnt a lane (players actually have to avoid)
+- Balance the game
 
 
 
@@ -24,3 +25,4 @@ Optional:
 
 - remove score on hit object? 
 	- flash score flash red
+- make projectile speed for enemies slower
