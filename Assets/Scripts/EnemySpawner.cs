@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject Enemy;
-    [SerializeField] private float spawnRate = 3.0f;
+    private float spawnRate = 3.0f;
     private float spawnTimer;
 
 
     void SpawnEnemy() {
         Instantiate(Enemy, new Vector3(Random.Range(-9, 9), 1, transform.position.z), transform.rotation);
         spawnTimer = Time.time + spawnRate;
+        Debug.Log(spawnRate);
     }
 
     void Update() {
@@ -21,12 +22,12 @@ public class EnemySpawner : MonoBehaviour
 
         if (Time.time > spawnTimer) {
             SpawnEnemy();
-            spawnRate -= 0.00000001f;
+            spawnRate -= 0.000001f;
         }
         
     }
 
-    public void setSpawnRate(float rate) {
-        spawnRate = rate;
-    }
+    // public void setSpawnRate(float rate) {
+    //     spawnRate = rate;
+    // }
 }

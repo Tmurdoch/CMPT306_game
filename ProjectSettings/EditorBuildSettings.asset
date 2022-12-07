@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/desert_level.unity
     guid: ae1eec82f9915f5b7a3543b263e36dde
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 32f4a9aec70ee0f4298c5095d23c8f3b
   m_configObjects: {}

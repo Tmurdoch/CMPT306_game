@@ -95,13 +95,12 @@ public class Player : MonoBehaviour
     public void TakeDamage (float damage) {
         health -= damage; 
         if (health <= 0) {
-            Debug.Log("should take damage");
             //GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation);
             //Destroy(effect, 1.0f); 
             Destroy(this.gameObject);     
-            //reload scene
+            //Load end scene
             Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            SceneManager.LoadScene(3);
 
         }
     }
