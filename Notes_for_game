@@ -10,7 +10,7 @@ TODO:
 - killing enemies increase score
 - move the objects so their isnt a lane (players actually have to avoid)
 - Balance the game
-
+- portal should have box collider not sphere
 
 
 FEATURES:

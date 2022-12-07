@@ -10,6 +10,7 @@ TagManager:
   - Shop
   - TileSpawner
   - Portal
+  - GameManager
   layers:
   - Default
   - TransparentFX

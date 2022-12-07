@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 55040613}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3213,7 +3213,7 @@ MonoBehaviour:
   jumpForce: 2
   isGrounded: 0
   rb: {fileID: 0}
-  health: 500
+  health: 100
   tileSpawner: {fileID: 369849377}
 --- !u!54 &1959380536
 Rigidbody:
