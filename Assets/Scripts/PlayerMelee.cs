@@ -27,4 +27,8 @@ public class PlayerMelee : MonoBehaviour
             other.GetComponent<Enemy>().TakeDamage(damage); 
         }
     }
+
+    public void increaseSpeed() {
+        this.rotateSpeed = this.rotateSpeed * 2.0f;
+    }
 }

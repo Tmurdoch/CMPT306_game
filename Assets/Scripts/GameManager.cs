@@ -22,7 +22,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public GameObject shop;
 
+    [SerializeField] public PlayerMelee playerMelee;
+
     [SerializeField] public GameObject shopbutton;
+
+
     //for debugging
     [SerializeField] public int coinsToSpawnShop = 10;
 
@@ -102,7 +106,7 @@ public class GameManager : MonoBehaviour
     {
         if(coinsSO.Value >= 20) {
             removeCoins(20);
-            player.increaseShotSpeed();
+            playerMelee.increaseSpeed();
         }
     }
 
