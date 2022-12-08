@@ -831,10 +831,10 @@ RectTransform:
   m_Father: {fileID: 1796565255}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -4.4019544e-10}
-  m_SizeDelta: {x: 242.202, y: 45.413}
+  m_SizeDelta: {x: 0, y: 45.413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258929825
 MonoBehaviour:
@@ -869,7 +869,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Swing Faster - 20 coins
+  m_Text: ' Swing Faster - 20 coins'
 --- !u!222 &258929826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1759,10 +1759,10 @@ RectTransform:
   m_Father: {fileID: 127126540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 242.202, y: 45.413}
+  m_SizeDelta: {x: 0, y: 45.413}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728753277
 MonoBehaviour:
@@ -1797,7 +1797,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Heal Player - 10 Coins
+  m_Text: ' Heal Player - 10 Coins'
 --- !u!222 &728753278
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &774205760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1939,10 +1939,10 @@ RectTransform:
   m_Father: {fileID: 486460709}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 444.386, y: 83.323}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 170.54, y: -500.15}
+  m_SizeDelta: {x: 341.08496, y: 63.95398}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774205761
 MonoBehaviour:
@@ -3211,7 +3211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 41.662}
+  m_AnchoredPosition: {x: 0, y: 41.662025}
   m_SizeDelta: {x: 444.386, y: 83.323}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796565256
@@ -3451,8 +3451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df8da992adfd2cd0a93fccbd041705d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMoveSpeed: 7.5
-  moveSpeed: 7.5
+  initialMoveSpeed: 15
+  moveSpeed: 15
   leftRightSpeed: 4
   PlayerProjectile: {fileID: 4904299589785419164, guid: 73609041205154538a0dd0e5a6cb21b0, type: 3}
   fireRates: 0.1
@@ -3617,6 +3617,10 @@ PrefabInstance:
     - target: {fileID: 6436313336470682286, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436313336470682286, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8945285340771645760, guid: 2948c96e67af4b84c883b590e23d3717, type: 3}
       propertyPath: player
